@@ -111,6 +111,10 @@ class BinanceProcessor():
         data['timestamp'] = self.servertime_to_datetime(data['timestamp'])
         data = data.set_index('timestamp')
         data = self.add_technical_indicator(data, technical_indicator_list)
+        
+        # drop NA from generated features (if exist)
+        data = data.dropna()
+
         data = self.drop_correlated_features(data)
 
         if if_vix:
@@ -119,9 +123,6 @@ class BinanceProcessor():
         price_array, tech_array, time_array = self.df_to_array(data, if_vix)
         tech_nan_positions = pd.isna(tech_array)
         tech_array[tech_nan_positions] = 0
-
-        # drop NA from generated features (if exist)
-        data = data.dropna()
 
         # Fracdiff input arrays
         # tech_array = self.frac_diff_features(tech_array)
