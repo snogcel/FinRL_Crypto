@@ -463,7 +463,9 @@ def sharpe_iid(rtns, bench=0, factor=1, log=True):
     else:
         # numpy way
         excess_mean = np.nanmean(excess, axis=0)
-        sharpe =  np.sqrt(factor) * excess_mean / np.nanstd(excess, axis=0, ddof=1)
+        sharpe = np.sqrt(factor) * excess_mean / np.nanstd(excess, axis=0, ddof=1)
+        if np.isnan(sharpe):
+            sharpe = 0
         vol = np.nanstd(excess, axis=0, ddof=1)
         return sharpe, vol
 
