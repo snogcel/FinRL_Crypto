@@ -22,7 +22,7 @@ and the equal-weighted portfolio, as well as the returns for the DRL agent.
 
 import numpy as np
 from drl_agents.elegantrl_models import DRLAgent as DRLAgent_erl
-from processor_Binance import BinanceProcessor
+# from processor_Binance import BinanceProcessor
 from function_finance_metrics import (compute_data_points_per_year,
                                       compute_eqw,
                                       sharpe_iid)
@@ -113,5 +113,8 @@ def test_agent(price_array, tech_array, test_indices, env, env_params, model_nam
     account_value_erl = np.array(account_value_erl)
     drl_rets_tmp = account_value_erl[1:] - account_value_erl[:-1]
     sharpe_bot, _ = sharpe_iid(drl_rets_tmp, bench=0, factor=factor, log=False)
+
+    print('account_value_eqw: ', account_value_eqw)
+    print('account_value_erl: ', account_value_erl)
 
     return sharpe_bot, sharpe_eqw, drl_rets_tmp

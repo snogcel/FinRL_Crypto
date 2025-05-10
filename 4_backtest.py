@@ -62,7 +62,7 @@ def download_CVIX(trade_start_date, trade_end_date):
     YahooProcessor = Yahoofinance('yahoofinance', trade_start_date, trade_end_date, TIME_INTERVAL)
     CVOL_df = YahooProcessor.download_data(['CVOL-USD'])
     CVOL_df.set_index('date', inplace=True)
-    CVOL_df = CVOL_df.resample('5Min').interpolate(method='linear')
+    CVOL_df = CVOL_df.resample('1H').interpolate(method='linear')
     return CVOL_df['close']
 
 
@@ -94,9 +94,7 @@ def load_and_process_data(TIMEFRAME, trade_start_date, trade_end_date):
 print('TRADE_START_DATE             ', trade_start_date)
 print('TRADE_END_DATE               ', trade_end_date, '\n')
 
-pickle_results = ["res_2023-01-23__16_32_55_model_WF_ppo_5m_3H_20k",
-                  "res_2023-01-23__17_07_49_model_KCV_ppo_5m_3H_20005k",
-                  "res_2023-01-23__16_44_30_model_CPCV_ppo_5m_3H_20k"
+pickle_results = ["res_2025-05-09__14_40_34_model_CPCV_ppo_1h_50H_25k"
                   ]
 
 # Execution

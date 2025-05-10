@@ -42,11 +42,11 @@ def nCr(n, r):
 #######################################################################################################
 #######################################################################################################
 
-trade_start_date = '2022-04-30 00:00:00'
-trade_end_date = '2022-06-27 00:00:00'
+trade_start_date = '2024-08-16 00:00:00'
+trade_end_date = '2025-04-26 00:00:00'
 
 SEED_CFG = 2390408
-TIMEFRAME = '5m'
+TIMEFRAME = '1h'
 H_TRIALS = 50
 KCV_groups = 5
 K_TEST_GROUPS = 2
@@ -59,7 +59,9 @@ print(NUMBER_OF_SPLITS)
 no_candles_for_train = 20000
 no_candles_for_val = 5000
 
-TICKER_LIST = ['AAVEUSDT',
+TICKER_LIST = ['BTCUSDT']
+
+""" TICKER_LIST = ['AAVEUSDT',
                'AVAXUSDT',
                'BTCUSDT',
                'NEARUSDT',
@@ -69,11 +71,13 @@ TICKER_LIST = ['AAVEUSDT',
                'MATICUSDT',
                'UNIUSDT',
                'SOLUSDT',
-               ]
+               ] """
 
 
 # Minimum buy limits
-ALPACA_LIMITS = np.array([0.01,
+ALPACA_LIMITS = np.array([0.0001])
+
+""" ALPACA_LIMITS = np.array([0.01,
                           0.10,
                           0.0001,
                           0.1,
@@ -83,7 +87,7 @@ ALPACA_LIMITS = np.array([0.01,
                           10,
                           0.1,
                           0.01
-                          ])
+                          ]) """
 
 
 TECHNICAL_INDICATORS_LIST = ['open',

@@ -348,7 +348,7 @@ def optimize(name_test, model_name, gpu_id):
 # Main
 #######################################################################################
 
-gpu_id = 0
+gpu_id = -1
 name_model = 'ppo'
 name_test = 'model'
 

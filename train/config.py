@@ -81,7 +81,7 @@ class Arguments:
             8  # cpu_num for pytorch, `torch.set_num_threads(self.num_threads)`
         )
         self.random_seed = 0  # initialize random seed in self.init_before_training()
-        self.learner_gpus = 8  # `int` means the ID of single GPU, -1 means CPU
+        self.learner_gpus = -1  # `int` means the ID of single GPU, -1 means CPU
 
         """Arguments for evaluate"""
         self.cwd = None  # current working directory to save model. None means set automatically
